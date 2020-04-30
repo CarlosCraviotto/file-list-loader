@@ -30,7 +30,7 @@
     "javascript"
   ],
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 10.0.0"
   },
   "files": [
     "README.md",
