@@ -1,6 +1,7 @@
 import chai = require('chai');
 
 import {FileListLoader} from '../../FileListLoader';
+import {rejects} from "assert";
 
 let fileListLoaderTest: FileListLoader;
 
@@ -49,16 +50,17 @@ describe('FileListLoader class tests', function () {
     });
 
 
-    it('Should throw an error if we have to files with same id',  async function () {
+    it('Should throw an error if we have to files with same id',    async function () {
         fileListLoaderTest = new FileListLoader({
             extensions: ['ts', 'json'],
             useFilePathInId: false
         });
 
+        await rejects(
+            fileListLoaderTest.addPaths({path: './src/__tests__/files'}),
+            '\'This file (one) already exist in collection.\''
+        );
 
-        await fileListLoaderTest.addPaths({path: './src/__tests__/files'}).catch((e)=>{
-            chai.assert.deepEqual('This file (id: one) already exist in collection.', e.message);
-        });
     });
 
 });

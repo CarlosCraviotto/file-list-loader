@@ -23,8 +23,6 @@ export class File {
     }
 
     public isThisFile(id: string): boolean {
-        console.log('Comparing ids: ');
-        console.log(this.id + '===' + id);
         return this.id === id;
     }
 
