@@ -1,7 +1,7 @@
 {
-  "name": "curli-mikro-orm-module",
-  "version": "0.0.1-beta.2",
-  "description": "Mikro ORM implementation for the Curli framework.",
+  "name": "file-list-loader",
+  "version": "0.0.1-beta.0",
+  "description": "A file loader that after searched in a path (or paths) recursively, generate an ID for each file based in the name.",
   "main": "index",
   "scripts": {
     "build:clean": "npm run clean && npm run build",
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CarlosCraviotto/curli-mikro-orm-module.git"
+    "url": "git+https://github.com/CarlosCraviotto/file-list-loader.git"
   },
   "keywords": [
-    "curli",
-    "Mikro",
-    "ORM",
-    "framework",
-    "database",
-    "db",
+    "file",
+    "files",
+    "files loader",
+    "list files",
+    "search files",
+    "files list loader",
     "typescript",
     "javascript"
   ],
@@ -46,9 +46,9 @@
   "author": "Carlos Juan Craviotto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CarlosCraviotto/curli-mikro-orm-module/issues"
+    "url": "https://github.com/CarlosCraviotto/file-list-loader/issues"
   },
-  "homepage": "https://github.com/CarlosCraviotto/curli-mikro-orm-module#readme",
+  "homepage": "https://github.com/CarlosCraviotto/file-list-loader#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/sinon": "9.0.0",
