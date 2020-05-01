@@ -35,7 +35,7 @@ module.exports = {
       "before": true,
       "after": true
     }],
-    "max-len": ["error", 95, 4, {"ignoreComments": true, "ignoreUrls": true,
+    "max-len": ["error", 100, 4, {"ignoreComments": true, "ignoreUrls": true,
       "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\("}],
     "mocha/handle-done-callback": "error",
     "mocha/no-exclusive-tests": "error",

@@ -1,4 +1,4 @@
 export type FileIdConfig = {
-    useFilePathInId?: boolean,
-    prefix?: string
+    useFilePathInId?: boolean;
+    prefix?: string;
 }

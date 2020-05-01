@@ -1,4 +1,4 @@
 export type PathConfig = {
-    path: string,
-    prefix?: string
+    path: string;
+    prefix?: string;
 }
