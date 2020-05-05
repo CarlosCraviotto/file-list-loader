@@ -88,4 +88,18 @@ describe('FileListLoader class tests', function () {
         chai.assert.deepEqual(['two', 'one'], filesListById);
     });
 
+    it('Should load a file from cache and then remove it.', async function () {
+        fileListLoaderTest = new FileListLoader({
+            extensions: ['json'],
+        });
+
+        await fileListLoaderTest.addPaths({path: './src/__tests__/files'});
+
+        let fileContent = await fileListLoaderTest.getFileContent('one');
+        fileContent = await fileListLoaderTest.getFileContent('one');
+
+        fileContent = await fileListLoaderTest.getFileContent('one', true);
+        chai.assert.deepEqual({'language': 'en'}, JSON.parse(fileContent));
+    });
+
 });

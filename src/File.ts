@@ -9,8 +9,8 @@ const readFilePromise = util.promisify(readFile);
 export class File {
 
     private id: string;
-    private isLoaded: boolean;
-    private content: any;
+
+    private cache: any;
     private path: string;
     private rootPath: string;
     private fileIdConfig: FileIdConfig;
@@ -21,7 +21,7 @@ export class File {
         this.rootPath = rootPath;
 
         this.id = this.generateIdFromPath();
-        this.isLoaded = false;
+
     }
 
     public isThisFile (id: string): boolean {
@@ -43,11 +43,21 @@ export class File {
         };
     }
 
-    public async getContent (): Promise<any> {
-        if (!this.isLoaded) {
-            await this.loadContent();
+    public async getContent (dontCacheIt: boolean): Promise<any> {
+        let content: any;
+
+        if (!this.cache) {
+            content = await this.loadContent();
+            this.cache = content;
+        } else {
+            content = this.cache;
         }
-        return this.content;
+
+        if (dontCacheIt) {
+            this.cache = void(0);
+        }
+
+        return content;
     }
 
     private generateIdFromPath (): string {
@@ -55,8 +65,7 @@ export class File {
     }
 
     private async loadContent (): Promise<any> {
-        this.content = await readFilePromise(this.path, 'utf8');
-        this.isLoaded = true;
+        return await readFilePromise(this.path, 'utf8');
     }
 
 }

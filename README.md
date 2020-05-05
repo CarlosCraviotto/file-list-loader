@@ -42,6 +42,14 @@ const unicornContent = await loader.getFileContent('unicorn');
 
 ```
 
+If we don't want keep the content in the cache, we can pass the second parameter as true.
+
+```typescript
+
+const oneContent = await loader.getFileContent('one', true);
+
+```
+
 
 ### Commands
 

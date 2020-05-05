@@ -26,16 +26,17 @@ export class FilesCollection {
     /**
      * Return the content of the file gave by id.
      * @param {string} id
+     * @param {boolean} dontCacheIt
      * @returns {any}
      */
-    public getContentOf (id: string): any {
+    public getContentOf (id: string, dontCacheIt: boolean): any {
         const file = this.findById(id);
 
         if (!file) {
             throw new Error('The file with id ' + id + ' doesn\'t exist in collection.');
         }
 
-        return file.getContent();
+        return file.getContent(dontCacheIt);
     }
 
     /**
